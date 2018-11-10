@@ -7,8 +7,10 @@ body{
     background: #fafafa;
 }
 
-.search-bar input{
-    margin-left: 45px;
+.search-bar{
+    input{
+        margin-left: 45px;
+    }
 }
 
 .employee{
@@ -16,17 +18,16 @@ body{
     height: 225px;
     line-height: 1;
     transition: 100ms ease-out;
-}
 
-.employee img{
-    height: 125px;
-    width: 125px;
-    filter: grayscale(1);
-}
-
-.employee h5{
-    color: #3498db;
-    padding: 10px 5px 5px;
+    img{
+        height: 125px;
+        width: 125px;
+        filter: grayscale(1);
+    }
+    h5{
+        color: #3498db;
+        padding: 10px 5px 5px;
+    }
 }
 
 .employee:hover{
