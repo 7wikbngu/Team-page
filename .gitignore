@@ -1,2 +1,10 @@
 node_modules
 package-lock.json
+%RESOURCE_DIR
+functions
+firebase
+html
+database.rules.json
+firebase-debug.log
+firebase.json
+.firebaserc

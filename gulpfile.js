@@ -10,7 +10,7 @@ gulp.task('default', ['sass']);
 gulp.task('sass', function (done) {
     gulp.src('./scss/style.scss')
         .pipe(sass())
-        .pipe(gulp.dest('./css/'))
+        .pipe(gulp.dest('./public/css/'))
         .on('end', done);
 })
 

@@ -5,11 +5,29 @@ body{
     padding: 0;
     font-family: 'Roboto', sans-serif;
     background: #fafafa;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 .search-bar{
+    position: relative;
+    .search-icon{
+        position: absolute;
+        left: 1rem;
+        font-size: 1.2rem;
+    }
     input{
-        margin-left: 45px;
+        border-radius: 1.25rem;
+        padding-left: 3rem;
+        font-size: 1.25rem;
+    }
+    input:focus{
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+
+    button{
+        border-radius: 1.25rem;
     }
 }
 
@@ -48,7 +66,7 @@ body{
         margin-top: 0.5rem !important;
     }
     .employee{
-        width: 155px;
+        width: 175px;
         line-height: 1;
         margin-bottom: 0px !important;
     }
