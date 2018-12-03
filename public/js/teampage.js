@@ -7,6 +7,7 @@ $(function () {
     // Firebase code
     var email = "sathwikbongu@gmail.com";
     var password = "sathwik";
+    var employees;
     
     firebase.auth().signInWithEmailAndPassword(email, password).then( (data) => {
         console.log("Data: ", data);
@@ -36,7 +37,7 @@ $(function () {
         console.log([leadersObj]);
         if(filterStatus === 0){
             for(var i = 0; i < leadersObj.length; i++){
-                var leaderHtml = '<div class="leader row mb-2 mx-3"><img src="https://placecage.com/125/125" class=" col-5 align-self-center" alt=""><div class="leader-info text-uppercase align-self-center mt-1 col-7"><h5>'+leadersObj[i].fullname+'</h5><p>'+leadersObj[i].position+'</p></div></div>';
+                var leaderHtml = '<div class="leader row mb-2 mx-3"><img src="https://placecage.com/125/125" class="rounded-circle col-5 align-self-center" alt=""><div class="leader-info text-uppercase align-self-center mt-1 col-7"><h5>'+leadersObj[i].fullname+'</h5><p>'+leadersObj[i].position+'</p></div></div>';
                 
                 $(".leadership").append(leaderHtml);
             }
@@ -45,26 +46,33 @@ $(function () {
         }
     }
 
-    function generateEmployees(deptsObj){
-        filterEmployee = 
+    function generateEmployees(deptsObj) {
+        filterEmployee = deptsObj;
+        employees = deptsObj;
         console.log([deptsObj]);
-        for (dept in deptsObj){
-            if (deptsObj.hasOwnProperty(dept)){
-                for(var i = 0;i < deptsObj[dept].length; i++){
-                    // console.log("Name: ",deptsObj[dept][i].fullname);
-                    // console.log("Position: ",deptsObj[dept][i].position);
-                    var employeeHtml = '<div class="employee my-2 py-2"><img src="https://placecage.com/125/125" class="rounded-circle" alt=""><div class="employee-info invisible text-uppercase mt-1"><h5>'+deptsObj[dept][i].fullname+'</h5><p>'+deptsObj[dept][i].position+'</p></div></div>';
-                    
-                    $(".employees").append(employeeHtml);
-                }
-            }
+        for (var i = 0; i < deptsObj.length; i++) {
+            // console.log("Name: ",deptsObj[dept][i].fullname);
+            // console.log("Position: ",deptsObj[dept][i].position);
+            var employeeHtml = '<div class="employee my-2 py-2"><img src="https://placecage.com/125/125" class="rounded-circle" alt=""><div class="employee-info invisible text-capitalize mt-1"><h5 id="employeeName">' + deptsObj[i].fname + ' ' + deptsObj[i].lname + '</h5><p>' + deptsObj[i].position + '</p></div></div>';
+
+            $(".employees").append(employeeHtml);
         }
     }
 
     // Search bar filter
     $('#filter').on('keyup', () => {
         var output = $("#filter").val();
-        console.log("Search:",output);
+        var pattern = new RegExp(output.toLowerCase());
+        console.log(output, employees);
+        $(".employees").empty();
+        employees.map( employee => {
+            if(pattern.test(employee.fname.toLowerCase()) || pattern.test(employee.lname.toLowerCase())){
+                console.log(employee.fname);
+                var employeeHtml = '<div class="employee my-2 py-2"><img src="https://placecage.com/125/125" class="rounded-circle" alt=""><div class="employee-info invisible text-capitalize mt-1"><h5 id="employeeName">' + employee.fname + ' ' + employee.lname + '</h5><p>' + employee.position + '</p></div></div>';
+                $(".employees").append(employeeHtml);
+            }
+        });
+
     })
     
 
