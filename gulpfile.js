@@ -1,19 +1,18 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
+var gulp = require('gulp'),
+    sass = require('gulp-sass'),
+    cleanCSS = require('gulp-clean-css');
 
 var paths = {
-    sass: ['./scss/style.scss']
+    sass: ['./scss/*.scss']
 };
 
-gulp.task('default', ['sass']);
-
-gulp.task('sass', function (done) {
-    gulp.src('./scss/style.scss')
+gulp.task('sass', function () {
+    gulp.src(paths.sass)
         .pipe(sass())
-        .pipe(gulp.dest('./public/css/'))
-        .on('end', done);
+        .pipe(cleanCSS())
+        .pipe(gulp.dest('./public/css/'));
 })
 
-gulp.task('watch', ['sass'], function () {
+gulp.task('default', function () {
     gulp.watch(paths.sass, ['sass']);
 });

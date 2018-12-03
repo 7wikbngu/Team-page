@@ -1,12 +1,31 @@
+//variables
+$primary: #007BFF;
+
+// google font
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
+
 
 body{
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-    background: #fafafa;
+    background: #F7F7F7;
     box-sizing: border-box;
     scroll-behavior: smooth;
+}
+
+.category-title{
+    display: inline-block;
+    font-size: 15px !important;
+    font-weight: 600;
+    border-bottom: 1px solid $primary;
+}
+
+section{
+    .section-header{
+        border-bottom: 1px solid #444;
+        display: inline-block;
+    }
 }
 
 .search-bar{
@@ -17,18 +36,44 @@ body{
         font-size: 1.2rem;
     }
     input{
-        border-radius: 1.25rem;
+        border-radius: 24px;
         padding-left: 3rem;
         font-size: 1.25rem;
     }
     input:focus{
         box-shadow: none;
-        border: 1px solid #000;
+        border: 1px solid $primary !important;
     }
 
     button{
         border-radius: 1.25rem;
     }
+}
+
+.leader{
+    width: 325px;
+    height: 150px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    border-radius: 10px;
+
+    img{
+        height: 125px;
+        width: 125px;
+        filter: grayscale(1);
+        vertical-align: middle;
+    }
+    h5{
+        color: #3498db;
+        padding: 10px 0px 5px;
+        font-size: 18px;
+    }
+    p{
+        font-size: 14px !important;
+    }
+}
+
+.leader:hover img{
+    filter: none;
 }
 
 .employee{
@@ -38,13 +83,17 @@ body{
     transition: 100ms ease-out;
 
     img{
-        height: 125px;
-        width: 125px;
+        height: 130px;
+        width: 130px;
         filter: grayscale(1);
     }
     h5{
         color: #3498db;
         padding: 10px 5px 5px;
+        font-size: 18px;
+    }
+    p{
+        font-size: 14px !important;
     }
 }
 
@@ -72,5 +121,8 @@ body{
     }
     .employee h5{
         padding: 0px;
+    }
+    .leader{
+        margin-left: 2vw;
     }
 }
