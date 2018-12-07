@@ -16,33 +16,43 @@ body{
 
 .category-title{
     display: inline-block;
-    font-size: 15px !important;
+    font-size: 18px !important;
     font-weight: 600;
-    border-bottom: 1px solid $primary;
+    border-bottom: 3px solid $primary;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 section{
     .section-header{
-        border-bottom: 1px solid #444;
+        border-bottom: 4px solid $primary;
         display: inline-block;
     }
 }
 
 .search-bar{
     position: relative;
+    width: 50%;
     .search-icon{
         position: absolute;
         left: 1rem;
         font-size: 1.2rem;
     }
     input{
-        border-radius: 24px;
+        border: 1px solid #e5e8eb;
+        border-radius: 10px;
         padding-left: 3rem;
-        font-size: 1.25rem;
+        height: 62px;
+        font-size: 16px;
+
+        &::placeholder{
+            font-size: 16px;
+        }
     }
-    input:focus{
-        box-shadow: none;
-        border: 1px solid $primary !important;
+
+    input:focus,input:hover{  
+        box-shadow: 0 3px 6px 0 rgba(0,0,0,.1), 0 1px 3px 0 rgba(0,0,0,.08);
+        border-color: rgba(223,225,229,0);
     }
 
     button{
@@ -52,22 +62,24 @@ section{
 
 .leader{
     width: 325px;
-    height: 125px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    height: 150px;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,.15), 0 1px 3px 0 rgba(0,0,0,.08);
     border-radius: 10px;
 
     img{
         width: 100%;
-        filter: grayscale(1);
+        filter: grayscale(0.75);
         vertical-align: middle;
     }
     h5{
         color: #3498db;
         padding: 10px 0px 5px;
         font-size: 18px;
+        line-height: 0.9;
     }
     p{
         font-size: 14px !important;
+        line-height: 1.2;
     }
 }
 
@@ -79,25 +91,28 @@ section{
     width: 200px;
     height: 225px;
     line-height: 1;
-    transition: 100ms ease-out;
+    transition: 300ms ease-in-out;
 
     img{
         height: 130px;
         width: 130px;
-        filter: grayscale(1);
+        filter: grayscale(0.75);
     }
     h5{
         color: #3498db;
         padding: 10px 5px 5px;
         font-size: 18px;
+        line-height: 0.9;
     }
     p{
         font-size: 14px !important;
+        line-height: 1.2;
     }
 }
 
 .employee:hover{
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    background: #fafafa;
+    box-shadow: 0 40px 100px -20px rgba(0,0,10,0.2), 0 -15px 70px -30px rgba(0,0,0,0.4);
     border-radius: 10px;
 }
 
@@ -110,6 +125,9 @@ section{
 }
 
 @media only screen and (min-width:320px) and (max-width: 480px){
+    .search-bar{
+        width: 100%;
+    }
     .employees{
         margin-top: 0.5rem !important;
     }
@@ -121,7 +139,8 @@ section{
     .employee h5{
         padding: 0px;
     }
-    .leader{
-        margin-left: 2vw;
+    .leadership{
+        justify-content: center;
     }
+
 }
